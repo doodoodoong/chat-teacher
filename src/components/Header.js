@@ -1,6 +1,7 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Spacer, Text } from '@chakra-ui/react';
 
 import { ReactComponent as MenuIcon } from '../assets/school.svg';
+import About from './About';
 
 function Header() {
   return (
@@ -13,6 +14,10 @@ function Header() {
           Chat-Teacher
         </Text>
       </Flex>
+      <Spacer />
+      <Box m={'5'}>
+        <About />
+      </Box>
     </Flex>
   );
 }

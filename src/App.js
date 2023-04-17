@@ -4,6 +4,8 @@ import VideoBackground from './components/VideoBackground';
 import VideoOverlay from './components/VideoOverlay';
 import Header from './components/Header';
 import theme from './theme';
+import '@fontsource/poppins';
+
 function App() {
   return (
     <ChakraProvider theme={theme}>
