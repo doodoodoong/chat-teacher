@@ -26,10 +26,7 @@ function About() {
       </MenuButton>
       <MenuList>
         <MenuGroup title="Profile">
-          <MenuItem>
-            <Avatar name="Kim" src="/assets/teacher.jpg" />
-            About me
-          </MenuItem>
+          <MenuItem>About me</MenuItem>
           <MenuItem>Contact Me</MenuItem>
           <MenuDivider />
           <MenuGroup title="Help">
