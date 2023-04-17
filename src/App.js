@@ -1,21 +1,17 @@
 import React from 'react';
-import { ChakraProvider, Heading, Text, theme } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 import VideoBackground from './components/VideoBackground';
 import VideoOverlay from './components/VideoOverlay';
-
+import Header from './components/Header';
+import theme from './theme';
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <VideoBackground videoSrc={'/assets/study.mp4'} />
       <VideoOverlay />
-      <Text
-        textAlign={'center'}
-        color={'white'}
-        fontWeight={'extrabold'}
-        fontSize={'8xl'}
-      >
-        Chat-teacher Can Help Your Study About
-      </Text>
+      <Box zIndex={1}>
+        <Header />
+      </Box>
     </ChakraProvider>
   );
 }
