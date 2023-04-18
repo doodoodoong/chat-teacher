@@ -26,7 +26,10 @@ function About() {
       </MenuButton>
       <MenuList>
         <MenuGroup title="Profile">
-          <MenuItem>About me</MenuItem>
+          <MenuItem>
+            <Avatar name="Kim" src="../asets/teacher.jpg" />
+            <Text ml={'1'}>About me</Text>
+          </MenuItem>
           <MenuItem>Contact Me</MenuItem>
           <MenuDivider />
           <MenuGroup title="Help">
