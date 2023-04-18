@@ -1,7 +1,8 @@
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon, EmailIcon } from '@chakra-ui/icons';
 import {
   Avatar,
   Button,
+  Icon,
   Menu,
   MenuButton,
   MenuDivider,
@@ -10,6 +11,8 @@ import {
   MenuList,
   Text,
 } from '@chakra-ui/react';
+import { BiSupport } from 'react-icons/bi';
+import { BiHelpCircle } from 'react-icons/bi';
 
 function About() {
   return (
@@ -27,14 +30,23 @@ function About() {
       <MenuList>
         <MenuGroup title="Profile">
           <MenuItem>
-            <Avatar name="Kim" src="../assets/teacher.jpg" />
+            <Avatar name="Kim" src="/assets/teacher.jpg" size={'xs'} />
             <Text ml={'1'}>About me</Text>
           </MenuItem>
-          <MenuItem>Contact Me</MenuItem>
+          <MenuItem>
+            <EmailIcon ml={'1'} />
+            <Text ml={'1.5'}>Contact Me</Text>
+          </MenuItem>
           <MenuDivider />
           <MenuGroup title="Help">
-            <MenuItem>Suggest</MenuItem>
-            <MenuItem>Help</MenuItem>
+            <MenuItem>
+              <Icon as={BiSupport} size={'xs'} />
+              <Text ml={'1'}>Suggest</Text>
+            </MenuItem>
+            <MenuItem>
+              <Icon as={BiHelpCircle} />
+              <Text ml={'1'}>Help</Text>
+            </MenuItem>
           </MenuGroup>
         </MenuGroup>
       </MenuList>

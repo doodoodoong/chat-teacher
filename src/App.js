@@ -5,6 +5,7 @@ import VideoOverlay from './components/VideoOverlay';
 import Header from './components/Header';
 import theme from './theme';
 import '@fontsource/poppins';
+import Main from './components/Main';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <VideoOverlay />
       <Box zIndex={1}>
         <Header />
+        <Main />
       </Box>
     </ChakraProvider>
   );
