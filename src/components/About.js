@@ -27,7 +27,7 @@ function About() {
       <MenuList>
         <MenuGroup title="Profile">
           <MenuItem>
-            <Avatar name="Kim" src="../asets/teacher.jpg" />
+            <Avatar name="Kim" src="../assets/teacher.jpg" />
             <Text ml={'1'}>About me</Text>
           </MenuItem>
           <MenuItem>Contact Me</MenuItem>
