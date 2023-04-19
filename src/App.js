@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import VideoBackground from './components/VideoBackground';
-import VideoOverlay from './components/VideoOverlay';
+import VideoOverlay from './components/VideoOverlay';
 import Header from './components/Header';
 import theme from './theme';
 import '@fontsource/poppins';
