@@ -1,21 +1,20 @@
 import React from 'react';
-import { Box, ChakraProvider } from '@chakra-ui/react';
-import VideoBackground from './components/VideoBackground';
-import VideoOverlay from './components/VideoOverlay';
-import Header from './components/Header';
+import { ChakraProvider } from '@chakra-ui/react';
+
 import theme from './theme';
 import '@fontsource/poppins';
-import Main from './components/Main';
+
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Teach from './pages/Teach';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <VideoBackground videoSrc={'/assets/study.mp4'} />
-      <VideoOverlay />
-      <Box zIndex={1}>
-        <Header />
-        <Main />
-      </Box>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/teach" element={<Teach />} />
+      </Routes>
     </ChakraProvider>
   );
 }
