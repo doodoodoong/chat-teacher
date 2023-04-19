@@ -1,12 +1,16 @@
 import { Box, Button, Flex, Highlight, Text } from '@chakra-ui/react';
 import MainSlideUp from './MainSlideUp';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Main() {
   const [isClicked, setIsClicked] = useState(false);
-
+  const navigate = useNavigate();
   const handleClick = () => {
     setIsClicked(!isClicked);
+    setTimeout(() => {
+      navigate('/teach');
+    }, 1500);
   };
   return (
     <>
