@@ -39,6 +39,16 @@ function About() {
     onOpen: onOpen2,
     onClose: onClose2,
   } = useDisclosure();
+  const {
+    isOpen: isOpen3,
+    onOpen: onOpen3,
+    onClose: onClose3,
+  } = useDisclosure();
+  const {
+    isOpen: isOpen4,
+    onOpen: onOpen4,
+    onClose: onClose4,
+  } = useDisclosure();
   return (
     <>
       <Menu>
@@ -136,14 +146,66 @@ function About() {
             </Modal>
             <MenuDivider />
             <MenuGroup title="Help">
-              <MenuItem>
+              <MenuItem onClick={onOpen3}>
                 <Icon as={BiSupport} size={'xs'} />
                 <Text ml={'1'}>Suggest</Text>
               </MenuItem>
-              <MenuItem>
+              <Modal isOpen={isOpen3} onClose={onClose3}>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader>Suggest</ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody>
+                    <Card>
+                      <CardBody>
+                        <Stack divider={<StackDivider />} spacing={'4'}>
+                          <Box>
+                            <Text pt={'2'} fontSize={'sm'}>
+                              Give me Your idea to abcd1234@gmail.com
+                            </Text>
+                          </Box>
+                        </Stack>
+                      </CardBody>
+                    </Card>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button colorScheme="gray" mr={3} onClick={onClose3}>
+                      Close
+                    </Button>
+                    <Button colorScheme="blue">Send E-mail</Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+              <MenuItem onClick={onOpen4}>
                 <Icon as={BiHelpCircle} />
                 <Text ml={'1'}>Help</Text>
               </MenuItem>
+              <Modal isOpen={isOpen4} onClose={onClose4}>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader>Help</ModalHeader>
+                  <ModalBody>
+                    <Card>
+                      <CardBody>
+                        <Stack divider={<StackDivider />} spacing={'4'}>
+                          <Text pt={'2'} fontSize={'sm'}>
+                            I need YOUR HELP. Please help me If you have any
+                            ability.
+                          </Text>
+                        </Stack>
+                      </CardBody>
+                    </Card>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button colorScheme="gray" mr={3} onClick={onClose4}>
+                      Close
+                    </Button>
+                    <Button colorScheme="blue" mr={3}>
+                      Try It!
+                    </Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
             </MenuGroup>
           </MenuGroup>
         </MenuList>
