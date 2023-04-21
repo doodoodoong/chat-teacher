@@ -2,7 +2,6 @@ import { Box, Button, Flex, Highlight, Text } from '@chakra-ui/react';
 import MainSlideUp from './MainSlideUp';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 function Main() {
   const [isClicked, setIsClicked] = useState(false);
@@ -52,6 +51,7 @@ function Main() {
           }}
           transition={'all 1.5s'}
           onClick={handleClick}
+          _hover={'none'}
         >
           <Text
             sx={{
