@@ -2,6 +2,7 @@ import { Box, Button, Flex, Highlight, Text } from '@chakra-ui/react';
 import MainSlideUp from './MainSlideUp';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Main() {
   const [isClicked, setIsClicked] = useState(false);
@@ -44,7 +45,6 @@ function Main() {
           w={'100px'}
           h={'100px'}
           alignContent={'center'}
-          _hover={'none'}
           sx={{
             transform: isClicked ? 'scale(100)' : 'scale(1)',
             bgColor: 'black',
@@ -59,6 +59,7 @@ function Main() {
             }}
             textAlign={'center'}
             color={'white'}
+            fontSize={'2xl'}
           >
             Start!
           </Text>
