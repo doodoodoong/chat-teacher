@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import FadeInOutText from '../components/FadeInOutText';
 import Subjectinput from '../components/SubjectInput';
+import ChatGpt from '../components/ChatGpt';
 
 function Teach() {
   const chat1 = '어떤 과목에 대해 알고 싶나요?';
@@ -11,6 +12,7 @@ function Teach() {
         <FadeInOutText text={chat1} />
         <FadeInOutText text={subjectSelect} />
         <Subjectinput />
+        <ChatGpt />
       </Box>
     </>
   );
