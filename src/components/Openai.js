@@ -17,6 +17,7 @@ const openai = async prompt => {
       },
     }
   );
+  console.log(res);
   return res.data.choices[0].text.trim();
 };
 
