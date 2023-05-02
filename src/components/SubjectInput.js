@@ -2,7 +2,7 @@ import { Box, Select, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-function Subjectinput() {
+function Subjectinput({ onSubSelect }) {
   const [inputValue, setInputValue] = useState('');
   const [selected, setSelected] = useState(false);
   useEffect(() => {
@@ -17,6 +17,7 @@ function Subjectinput() {
     const newValue = e.target.value;
     setInputValue(newValue);
     localStorage.setItem('subject', newValue);
+    onSubSelect(newValue);
     setSelected(true);
     console.log(inputValue);
   };
