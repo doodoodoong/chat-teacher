@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
-import FadeInOutText from '../components/FadeInOutText';
 import Subjectinput from '../components/SubjectInput';
 import ChatGpt from '../components/ChatGpt';
 import { useState } from 'react';
+import { TypeAnimation } from 'react-type-animation';
 
 function Teach() {
   const [sub, setSub] = useState(false);
@@ -20,8 +20,18 @@ function Teach() {
   return (
     <>
       <Box w={'100vw'} h={'100vh'} bgColor={'black'} position={'relative'}>
-        <FadeInOutText text={chat1} />
-        <FadeInOutText text={subjectSelect} />
+        <TypeAnimation
+          sequence={[`${chat1}\n ${subjectSelect}`, 3000]}
+          wrapper="div"
+          cursor={true}
+          style={{
+            whiteSpace: 'pre-line',
+            fontSize: '4em',
+            display: 'inline-block',
+            fontFamily: 'NeoDunggeunmoPro-Regular',
+            alignItems: 'center',
+          }}
+        />
         <Subjectinput onSubSelect={handleSubSelect} />
         {sub === true ? <ChatGpt /> : null}
       </Box>
