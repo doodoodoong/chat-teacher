@@ -21,7 +21,7 @@ function Teach() {
     <>
       <Box w={'100vw'} h={'100vh'} bgColor={'black'} position={'relative'}>
         <TypeAnimation
-          sequence={[`${chat1}\n ${subjectSelect}`, 3000]}
+          sequence={[`${chat1}\n ${subjectSelect}`, 5000]}
           wrapper="div"
           cursor={true}
           style={{
@@ -29,7 +29,7 @@ function Teach() {
             fontSize: '4em',
             display: 'inline-block',
             fontFamily: 'NeoDunggeunmoPro-Regular',
-            alignItems: 'center',
+            margin: 20,
           }}
         />
         <Subjectinput onSubSelect={handleSubSelect} />
