@@ -30,6 +30,7 @@ function Teach() {
             display: 'inline-block',
             fontFamily: 'NeoDunggeunmoPro-Regular',
             margin: 20,
+            color: 'white',
           }}
         />
         <Subjectinput onSubSelect={handleSubSelect} />
