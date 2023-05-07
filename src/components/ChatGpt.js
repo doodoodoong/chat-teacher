@@ -1,13 +1,22 @@
-import { Box, Button, Input, Spinner, Text, VStack } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  Spinner,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
 import openai from './Openai';
 import { useState } from 'react';
+import { TypeAnimation } from 'react-type-animation';
 
 function ChatGpt() {
-  const [prompt, setPromprt] = useState('');
+  const [prompt, setPrompt] = useState('');
   const [res, setRes] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const handlePromptChange = e => {
-    setPromprt(e.target.value);
+    setPrompt(e.target.value);
   };
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -27,11 +36,33 @@ function ChatGpt() {
         />
         <Button onClick={handleSubmit}>Submit</Button>
         {isLoading ? (
-          <Spinner size={'xl'} color={'white'} />
+          <Box display={'flex'}>
+            <Spinner size={'xl'} color={'white'} />
+            <Flex
+              marginLeft={'3px'}
+              justifyContent={'center'}
+              alignItems={'center'}
+            >
+              <Text
+                fontFamily={'mono'}
+                fontSize={'2xl'}
+                textAlign={'center'}
+                color={'white'}
+              >
+                Thinking
+              </Text>
+            </Flex>
+          </Box>
         ) : (
-          <Text color={'white'} fontFamily={'mono'}>
-            {res}
-          </Text>
+          <TypeAnimation
+            sequence={[`${res}`, 4000]}
+            cursor={true}
+            style={{
+              fontSize: '3em',
+              fontFamily: 'NeoDunggeunmoPro-Regular',
+              color: 'white',
+            }}
+          />
         )}
       </VStack>
     </Box>
