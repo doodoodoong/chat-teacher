@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Text, Textarea } from '@chakra-ui/react';
 import Subjectinput from '../components/SubjectInput';
 import ChatGpt from '../components/ChatGpt';
 import { useState } from 'react';
