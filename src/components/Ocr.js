@@ -11,7 +11,7 @@ async function callOcr(imageFile) {
       {
         headers: {
           'X-OCR-SECRET': 'ck5ubENsck9tZmhsVGFQcXhwWUd1ck5WSnVVT3ZoZFU=',
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
       }
     );

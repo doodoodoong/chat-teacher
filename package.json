@@ -2,6 +2,7 @@
   "name": "chat-teacher",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://c8t06c99ta.apigw.ntruss.com",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.18",
     "@chakra-ui/react": "^2.5.5",
@@ -24,7 +25,6 @@
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
-  "proxy" : "https://c8t06c99ta.apigw.ntruss.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
