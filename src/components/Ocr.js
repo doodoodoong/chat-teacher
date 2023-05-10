@@ -6,7 +6,7 @@ async function callOcr(imageFile) {
 
   try {
     const response = await axios.post(
-      'https://c8t06c99ta.apigw.ntruss.com/custom/v1/22358/bf98859f1d4d4a9769d6e5bba414f6338aca7c2bb993a665d6e7e21c19dcb9ee/general',
+      '/custom/v1/22358/bf98859f1d4d4a9769d6e5bba414f6338aca7c2bb993a665d6e7e21c19dcb9ee/general',
       formData,
       {
         headers: {
