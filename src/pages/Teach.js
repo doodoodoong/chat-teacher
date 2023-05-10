@@ -3,6 +3,7 @@ import Subjectinput from '../components/SubjectInput';
 import ChatGpt from '../components/ChatGpt';
 import { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
+import ImageInput from '../components/ImageInput';
 
 function Teach() {
   const [sub, setSub] = useState(false);
@@ -35,6 +36,7 @@ function Teach() {
         />
         <Subjectinput onSubSelect={handleSubSelect} />
         {sub === true ? <ChatGpt /> : null}
+        <ImageInput />
       </Box>
     </>
   );
