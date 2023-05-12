@@ -5,11 +5,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
-
+app.timeout = 30000;
 app.post('/upload', (req, res) => {
   axios
     .post(
-      `https://vision.googleapis.com/v1/images:annotate?key=${GOOGLE_API_KEY}`,
+      `https://vision.googleapis.com/v1/images:annotate?key=${process.env.GOOGLE_API_KEY}`,
       {
         requests: [
           {
