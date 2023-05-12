@@ -1,24 +1,39 @@
+import { useCallback } from 'react';
 import axios from 'axios';
+import { useDropzone } from 'react-dropzone';
 
-async function callOcr(imageFile) {
-  const formData = new FormData();
-  formData.append('image', imageFile);
+function Ocr() {
+  const onDrop = useCallback(acceptedFiles => {
+    acceptedFiles.forEach(file => {
+      const reader = new FileReader();
 
-  try {
-    const response = await axios.post(
-      '/custom/v1/22358/bf98859f1d4d4a9769d6e5bba414f6338aca7c2bb993a665d6e7e21c19dcb9ee/general',
-      formData,
-      {
-        headers: {
-          'X-OCR-SECRET': 'ck5ubENsck9tZmhsVGFQcXhwWUd1ck5WSnVVT3ZoZFU=',
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    );
-    return response.data;
-  } catch (error) {
-    console.error('error messeage', error);
-  }
+      reader.onabord = () => console.log('file reading was aborted');
+      reader.onerror = () => console.log('file reading has failed');
+      reader.onload = () => {
+        const binaryStr = reader.result;
+        axios
+          .post('http://localhost:3001/upload', {
+            image: binaryStr.split(',')[1],
+          })
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      };
+      reader.readAsDataURL(file);
+    });
+  }, []);
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+
+  return (
+    <div {...getRootProps()}>
+      <input {...getInputProps()} />
+      <p>Drag 'n' drop some files here.</p>
+    </div>
+  );
 }
 
-export default callOcr;
+export default Ocr;
