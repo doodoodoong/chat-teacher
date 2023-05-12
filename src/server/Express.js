@@ -1,12 +1,15 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.post('/upload', (req, res) => {
   axios
     .post(
-      'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDaEonQ1qIZwsBpHyzu_p9MV5Pyl55k2DI',
+      `https://vision.googleapis.com/v1/images:annotate?key=${GOOGLE_API_KEY}`,
       {
         requests: [
           {
