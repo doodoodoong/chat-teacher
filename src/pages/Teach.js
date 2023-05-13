@@ -8,7 +8,7 @@ function Teach() {
 
   return (
     <>
-      <Box w={'100vw'} h={'100vh'} bgColor={'black'} position={'relative'}>
+      <Box w={'100%'} h={'100vh'} bgColor={'black'} position={'relative'}>
         <TypeAnimation
           sequence={[`${chat1}\n ${subjectSelect}`, 5000]}
           wrapper="div"

@@ -71,6 +71,7 @@ function ChatGpt() {
               fontFamily={'mono'}
               fontSize={'4xl'}
               margin={'20px'}
+              color={'white'}
             >
               Drag & Drop Your Capture File or CLICK!
             </Text>
