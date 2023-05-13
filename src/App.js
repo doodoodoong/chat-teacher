@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Teach from './pages/Teach';
 import Fonts from './Fonts';
+import Loading from './pages/Loading';
 function App() {
   return (
     <ChakraProvider theme={theme}>
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/teach" element={<Teach />} />
+        <Route path="/loading" element={<Loading />} />
       </Routes>
     </ChakraProvider>
   );
