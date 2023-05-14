@@ -9,9 +9,10 @@ import {
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
-import ChatGpt from '../components/ChatGpt';
 import { TypeAnimation } from 'react-type-animation';
 import { useEffect, useState } from 'react';
+import ChatGpt from '../components/ChatGpt';
+import Header from '../components/Header';
 
 function Teach() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -47,6 +48,7 @@ function Teach() {
       </Modal>
       {agreed && (
         <Box w={'100%'} h={'100vh'} bgColor={'black'} position={'relative'}>
+          <Header />
           <TypeAnimation
             sequence={[`${chat1}\n ${subjectSelect}`, 5000]}
             wrapper="div"

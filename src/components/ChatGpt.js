@@ -9,19 +9,21 @@ import {
 } from '@chakra-ui/react';
 import openai from './Openai';
 import { useCallback, useState } from 'react';
-import { TypeAnimation } from 'react-type-animation';
 import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
+import { useNavigate } from 'react-router-dom';
 
 function ChatGpt() {
+  const navigate = useNavigate();
   const [prompt, setPrompt] = useState('');
   const [res, setRes] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
   const onDrop = useCallback(acceptedFiles => {
     acceptedFiles.forEach(file => {
       const reader = new FileReader();
 
-      reader.onabord = () => console.log('file reading was aborted');
+      reader.onabort = () => console.log('file reading was aborted');
       reader.onerror = () => console.log('file reading has failed');
       reader.onload = () => {
         const binaryStr = reader.result;
@@ -46,9 +48,11 @@ function ChatGpt() {
   };
   const handleSubmit = async () => {
     setIsLoading(true);
+    navigate('/loading');
     const result = await openai(prompt);
     setRes(result);
     setIsLoading(false);
+    navigate('/response', { state: { response: result } });
   };
 
   return (
@@ -95,17 +99,7 @@ function ChatGpt() {
               </Text>
             </Flex>
           </Box>
-        ) : (
-          <TypeAnimation
-            sequence={[`${res}`, 4000]}
-            cursor={true}
-            style={{
-              fontSize: '3em',
-              fontFamily: 'NeoDunggeunmoPro-Regular',
-              color: 'white',
-            }}
-          />
-        )}
+        ) : null}
       </VStack>
     </Box>
   );
