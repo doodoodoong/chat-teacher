@@ -6,8 +6,8 @@ function Loading() {
     <>
       <Box display={'flex'} bgColor={'black'} w={'100vw'} h={'100vh'}>
         <Spinner size={'xl'} color={'white'} />
+        <LoadingMessage />
       </Box>
-      <LoadingMessage />
     </>
   );
 }
