@@ -1,4 +1,4 @@
-import { Box, Flex, Spinner } from '@chakra-ui/react';
+import { Box, Spinner } from '@chakra-ui/react';
 import LoadingMessage from '../components/LoadingMessage';
 
 function Loading() {
