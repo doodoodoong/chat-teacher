@@ -11,8 +11,15 @@ function Loading() {
       justifyContent={'center'}
       alignItems={'center'}
     >
-      <Spinner size={'xl'} color={'white'} />
-      <Flex justifyContent={'center'} alignItems={'center'}>
+      <Flex
+        position={'fixed'}
+        top={'50%'}
+        left={'50%'}
+        transform={'translate(-50%, -50%)'}
+        justifyContent={'center'}
+        alignItems={'center'}
+      >
+        <Spinner size={'xl'} color={'white'} />
         <TypeAnimation
           sequence={[
             '문제를 읽는중...',
