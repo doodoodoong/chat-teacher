@@ -55,7 +55,7 @@ function Teach() {
             cursor={true}
             style={{
               whiteSpace: 'pre-line',
-              fontSize: '4em',
+              fontSize: '3em',
               display: 'inline-block',
               fontFamily: 'NeoDunggeunmoPro-Regular',
               margin: 20,

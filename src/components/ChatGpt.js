@@ -58,13 +58,6 @@ function ChatGpt() {
   return (
     <Box>
       <VStack spacing={4}>
-        <Input
-          value={prompt}
-          onChange={handlePromptChange}
-          placeholder="Enter your prompt"
-          color={'white'}
-        />
-        <Button onClick={handleSubmit}>Submit</Button>
         <Flex justifyContent={'center'}>
           <Box {...getRootProps()}>
             <Input {...getInputProps()} />
@@ -81,6 +74,15 @@ function ChatGpt() {
             </Text>
           </Box>
         </Flex>
+
+        <Input
+          value={prompt}
+          onChange={handlePromptChange}
+          placeholder="Enter your prompt"
+          color={'white'}
+        />
+
+        <Button onClick={handleSubmit}>Submit</Button>
         {isLoading ? (
           <Box display={'flex'}>
             <Spinner size={'xl'} color={'white'} />
