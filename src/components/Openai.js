@@ -6,7 +6,7 @@ const openai = async prompt => {
     {
       model: 'text-davinci-003',
       prompt,
-      max_tokens: 256,
+      max_tokens: 1024,
       temperature: 0.7,
       top_p: 1,
     },
