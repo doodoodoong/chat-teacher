@@ -12,12 +12,14 @@ import { useCallback, useState } from 'react';
 import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
 import { useNavigate } from 'react-router-dom';
+import { Client } from '@notionhq/client';
 
 function ChatGpt() {
   const navigate = useNavigate();
   const [prompt, setPrompt] = useState('');
   const [res, setRes] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
   const onDrop = useCallback(acceptedFiles => {
     acceptedFiles.forEach(file => {
@@ -49,6 +51,7 @@ function ChatGpt() {
   const handleSubmit = async () => {
     setIsLoading(true);
     navigate('/loading');
+
     const result = await openai(prompt);
     setRes(result);
     setIsLoading(false);
