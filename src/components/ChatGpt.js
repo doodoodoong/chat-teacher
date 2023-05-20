@@ -51,40 +51,18 @@ function ChatGpt() {
   const handleSubmit = async () => {
     setIsLoading(true);
     navigate('/loading');
-    try {
-      const response = await axios.post(
-        'https://api.notion.com/v1/pages',
-        {
-          parent: { database_id: `${process.env.NOTION_DATABASE_ID}` },
-          properties: {
-            Name: {
-              title: [
-                {
-                  type: 'text',
-                  text: {
-                    content: prompt,
-                  },
-                },
-              ],
-            },
-          },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-            'Content-Type': 'application/json',
-            'Notion-Version': '2021-08-16',
-          },
-        }
-      );
-      console.log('Page Created: ', response.data);
-    } catch (error) {
-      console.error('Error creating page: ', error);
-    }
     const result = await openai(prompt);
     setRes(result);
     setIsLoading(false);
     navigate('/response', { state: { response: result } });
+    axios
+      .post('http://localhost:3001/add-to-notion', { text: result })
+      .then(response => {
+        console.log('Page created successfully: ', response.data.pageId);
+      })
+      .catch(err => {
+        console.log('Error creating page: ', err);
+      });
   };
 
   return (

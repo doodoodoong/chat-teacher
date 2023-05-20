@@ -35,4 +35,40 @@ app.post('/upload', (req, res) => {
     });
 });
 
+app.post('/add-to-notion', async (req, res) => {
+  try {
+    const response = await axios.post(
+      'https://api.notion.com/v1/pages',
+      {
+        parent: { database_id: `${process.env.NOTION_DATABASE_ID}` },
+        properties: {
+          Name: {
+            title: [
+              {
+                type: 'text',
+                text: {
+                  content: req.body.text,
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2021-08-16',
+        },
+      }
+    );
+    res.json({
+      message: 'Page created successfully.',
+      pageId: response.data.id,
+    });
+  } catch (error) {
+    console.error('Error creating page: ', error);
+    res.status(500).json({ error: 'Error calling Notion API' });
+  }
+});
 app.listen(3001, () => console.log('Server started on port 3001'));
